@@ -138,6 +138,7 @@ const result = await evaluate({
 
 Early academic work building on Jev (Sept 2026):
 
+- **Jev in the Wild** (Ling et al., 2026) — A data-driven survey and analysis of Jev's early application ecosystem, examining 2,170 public GitHub projects, application domains, and decision-use patterns. [Paper](https://arxiv.org/abs/2609.30216)
 - **REFLEX: Jev for Efficient Selective Control in LLM Agents** (arXiv:2609.26532) — Jev as the decision layer of an agent: high-confidence steps execute directly, low-confidence ones escalate to a strong LLM. 95% success with 72.7% fewer strong-model calls; savings hold across Qwen3.8-Max, Kimi K3, and DeepSeek-V4-Pro fallbacks.
 - **Jev-Mem: System-One-Controlled Agentic Memory for Efficient AI Agents** (arXiv:2609.23986) — a System-One controller manages memory construction and adaptive retrieval (route → retrieve → assess → expand → reassess), reserving the LLM for answer synthesis.
 - **Fast Intent-Driven Service Orchestration with Jev for 6G Edge Networks** (arXiv:2609.23136) — Jev's low latency wins on-time completion in edge orchestration (97.0% vs 93.5% DeepSeek / 88.7% Gemini under mobility traces).
