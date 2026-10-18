@@ -82,6 +82,7 @@ Schema matching is guaranteed by construction: Jev physically cannot emit anythi
 | Free tier | None |
 
 **Cost reality check**: a typical decision is ~400 tokens ≈ **$0.000017** — about 60,000 decisions per dollar.
+| Current version (preview) | `jev-1.14` (alias `jev-preview`): adds image input, native Box question type, optional 262k context — experimental, not production-ready |
 
 ## Official Resources
 
@@ -133,6 +134,8 @@ const result = await evaluate({
   providerOptions: { gateway: { zeroDataRetention: true } },
 });
 ```
+- [jev-mcp](https://github.com/jkudish/jev-mcp) — Jev typed judgments exposed as MCP tools
+- [pg-jev](https://github.com/realZachi/pg-jev) — PostgreSQL extension: ask tables questions in plain language via Jev
 
 ## Research Papers
 
@@ -153,6 +156,8 @@ Official claims (specific workflows): up to **193.6× faster** and **444.6× che
 - **Customer-service judgment** (Huxiu hands-on): ~64% accuracy on 50 support-triage questions — fast and cheap, but judgment quality not above same-class models.
 - **Confidence-as-gate experiments** (llt22/jev-lab): the only stable failure mode found was *conflicting instructions* (picked the wrong rule 3/3 rounds), and those failures carried very low `confidence` (0.04–0.16) — preliminary mechanism evidence that confidence works as an escalation gate.
 - **1.13 "jaggedness" doc** (official): currently weak on numbers, dates, and adversarial content; plan decomposition + code-based argmax for numeric judgments.
+- **Cloudflare Decision Index 0.2.1** (BenchLM, Oct 1, 2026): Jev led the email-spam classification snapshot at **97.4%** accuracy
+- **JevBench 72.07%** (TypeSafe-reported): reference score on the company's workflow evaluations (67.8% agreement, 0.4s/case)
 
 ## Use Cases
 
@@ -166,12 +171,15 @@ The pattern: wherever a system needs a *fast, cheap judgment* inside a loop, rat
 - **Real-time control** — the flagship demo: Doom at 10 decisions/sec; also Minecraft bots, driving sims, drone obstacle courses
 - **Memory management** — Jev-Mem: store/retrieve/route decisions for agentic memory
 - **Advisory vetoes** — e.g. Orus Agent places Jev *before* order execution (approve / reject / wait), keeping execution in external systems
+- **Command-safety classification** (Vercel) — replaced a larger AI classifier, 5–18× faster with improved accuracy
+- **Game agents** — [typesafe-mario](https://github.com/fhshaik/typesafe-mario): Jev agent playing Super Mario Bros. from structured emulator state
 
 ## Open-Source Reimplementations & Local Alternatives
 
 - **OpenJev** (APUS AI Lab, Sept 19, 2026) — independent open-source cross-platform reimplementation of Jev; MIT license; runs on macOS / Linux / Windows, GPU server or CPU-only; ships as an out-of-the-box Agent Skill (`fast-browser-use`) supporting fully local offline execution.
 - **jeff** / **poorjev** — community local (non-API) options for when data can't leave the machine.
 - [cobanov/awesome-jev](https://github.com/cobanov/awesome-jev) — the community-maintained awesome list (highest-starred index; note ecosystem listings don't always agree on stars — verify against repos directly).
+- [SemIf-OpenJev](https://github.com/TheoLeeCJ/SemIf-OpenJev) — independent open implementation ("semantic ifs") running on consumer GPUs; not affiliated with TypeSafe
 
 ## Community Resources
 
@@ -181,6 +189,7 @@ The pattern: wherever a system needs a *fast, cheap judgment* inside a loop, rat
 - [AI Profit Boardroom: Jev Architecture](https://aiprofitboardroom.com/blog/jev-architecture/) — architecture blueprints (voice browser, outfit mirror), the "English carries the intelligence" pattern
 - [Eigent AI: 什么是 Jev](https://www.eigent.ai/zh-CN/blog/typesafe-ai-jev-system-one-models) — detailed Chinese explainer
 - [DEV Community guide](https://dev.to) — getting-started guides circulating since launch week
+- [cobusgreyling/Jev](https://github.com/cobusgreyling/Jev) — unofficial Jev showcase (System One decisions, not chat)
 
 ## Media Coverage
 
@@ -192,6 +201,12 @@ The pattern: wherever a system needs a *fast, cheap judgment* inside a loop, rat
 - [新华网](http://www.news.cn/tech/20260921/8f1c9bd6a9254e629383f1ac51e0d27d/c.html) — APUS OpenJev open-source reimplementation
 - [开源中国](https://www.oschina.net/news/502609/typesafe-ai-system-one-models-and-jev)
 - [TechSpot](https://www.techspot.com) (Sept 20, 2026)
+- [Startup Fortune](https://startupfortune.com/typesafes-jev-becomes-vercel-ai-gateways-fastest-adopted-model-ever/) (Oct 17, 2026) — fastest-adopted model ever on Vercel AI Gateway
+- [Crypto Briefing](https://cryptobriefing.com/vercel-typesafe-jev-fastest-adopted-ai-model/) (Oct 16, 2026) — Vercel AI Gateway Index (Oct 15) confirms; $0.04–0.042/M input tokens, no output fees
+- [The Indus Pulse](https://www.theinduspulse.com/ai/typesafe-ai-decision-model-jev-sets-adoption-record-on-vercel) (Oct 17, 2026) — 35% of paid teams in two weeks; BenchLM: 97.4% on Cloudflare Decision Index email-spam benchmark
+- [TechAmerica](https://techamerica.ai/artificial-intelligence/jev-ai-model-sets-vercel-ai-gateway-adoption-record) (Oct 16, 2026) — 35.3% reach, 55.6% week-2 retention; rivals emerging: OpenAI Decisions API, Amazon Strands Decider 2B
+- [Artiverse](https://www.artiverse.ca/jevs-rivals-turn-decision-ai-into-a-crowded-new-market/) (Oct 17, 2026) — 20+ Jev alternatives shipped in ~4 weeks; JevBench 72.07%
+- [Global1 News](https://global1.news/typesafe-ai-releases-jev-114-with-images-box-type-and-262k-context) (Oct 16, 2026) — Jev 1.14 (`jev-preview`): image input, native Box question type, optional 262k context (experimental)
 
 ## Gotchas & Operational Risks
 
