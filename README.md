@@ -136,6 +136,8 @@ const result = await evaluate({
 ```
 - [jev-mcp](https://github.com/jkudish/jev-mcp) — Jev typed judgments exposed as MCP tools
 - [pg-jev](https://github.com/realZachi/pg-jev) — PostgreSQL extension: ask tables questions in plain language via Jev
+- [sommelier](https://github.com/wide3751/sommelier) (Oct 13, 2026) — Claude Code plugin that picks the right model and effort for each task using TypeSafe Jev judgments
+- [langgraph-jev-router](https://github.com/JTankariya/langgraph-jev-router) — native LangGraph conditional edge that replaces generative LLMs with Jev for routing; `pip install langgraph-jev-router`; featured in an Oct 16 industrial-safety-dispatch benchmark series
 
 ## Research Papers
 
@@ -158,6 +160,8 @@ Official claims (specific workflows): up to **193.6× faster** and **444.6× che
 - **1.13 "jaggedness" doc** (official): currently weak on numbers, dates, and adversarial content; plan decomposition + code-based argmax for numeric judgments.
 - **Cloudflare Decision Index 0.2.1** (BenchLM, Oct 1, 2026): Jev led the email-spam classification snapshot at **97.4%** accuracy
 - **JevBench 72.07%** (TypeSafe-reported): reference score on the company's workflow evaluations (67.8% agreement, 0.4s/case)
+- **30-image test, 1.14 vs 1.13** (press-report.net, Oct 16, 2026): same 30 images, same questions — 1.14 is stricter (fit own headline ≥0.5: 15/30 vs 23/30 on 1.13; wrong-headline fits fell 4/30 to 1/30). Box type boxed 6/6 clear targets, but also drew a box (confidence 0.03) for an absent bicycle. Author advises re-tuning thresholds before `jev-latest` flips to 1.14. [Writeup](https://press-report.net/ai-news/what-jev-made-of-30-images-from-my-collection/)
+- **Workflow dashboard recheck** (kingy.ai, Oct 12, 2026): rechecked TypeSafe's public case metadata — 711 vendor-declared cases (240 security / 117 agent traces / 150 invoices / 204 customer service); aggregate 67.8% at $0.0004 / 0.4s vs best comparator Sol 74.1% — Jev wins cost/time, not reported accuracy. [Review](https://kingy.ai/blog/typesafe-jev-review-the-ai-model-that-doesnt-generate-text/)
 
 ## Use Cases
 
@@ -173,6 +177,8 @@ The pattern: wherever a system needs a *fast, cheap judgment* inside a loop, rat
 - **Advisory vetoes** — e.g. Orus Agent places Jev *before* order execution (approve / reject / wait), keeping execution in external systems
 - **Command-safety classification** (Vercel) — replaced a larger AI classifier, 5–18× faster with improved accuracy
 - **Game agents** — [typesafe-mario](https://github.com/fhshaik/typesafe-mario): Jev agent playing Super Mario Bros. from structured emulator state
+- **Document review** — [Unsiloed blog](https://www.unsiloed.ai/blog/document-review-unsiloed-typesafe-jev) (Oct 13, 2026): writeup on using Jev for document review, posted to HN (48 points, 7 comments)
+- **Realtime object tracking** — [BenCaunt/jev-box-tracking](https://github.com/BenCaunt/jev-box-tracking) (Oct 16, 2026): first visible use of the Jev 1.14 `box` question type — realtime object tracking combining Jev box questions, optical flow, and a Kalman filter
 
 ## Open-Source Reimplementations & Local Alternatives
 
@@ -207,6 +213,8 @@ The pattern: wherever a system needs a *fast, cheap judgment* inside a loop, rat
 - [TechAmerica](https://techamerica.ai/artificial-intelligence/jev-ai-model-sets-vercel-ai-gateway-adoption-record) (Oct 16, 2026) — 35.3% reach, 55.6% week-2 retention; rivals emerging: OpenAI Decisions API, Amazon Strands Decider 2B
 - [Artiverse](https://www.artiverse.ca/jevs-rivals-turn-decision-ai-into-a-crowded-new-market/) (Oct 17, 2026) — 20+ Jev alternatives shipped in ~4 weeks; JevBench 72.07%
 - [Global1 News](https://global1.news/typesafe-ai-releases-jev-114-with-images-box-type-and-262k-context) (Oct 16, 2026) — Jev 1.14 (`jev-preview`): image input, native Box question type, optional 262k context (experimental)
+- [implicator.ai](https://www.implicator.ai/typesafe-ai-raises-870-million-for-jev-as-openai-amazon-and-cloudflare-ship-rivals/) (Oct 12, 2026) — $870M Series A at $7.5B valuation roundup, plus the rival tracker: OpenAI Decisions API (Oct 6), AWS Strands Decider 2B (Oct 1), Cloudflare Clef, and Stanford/Nvidia's open CLM-8B — up to 9x faster than Jev on some tasks but less accurate at tool-calling (per the cited tests)
+- [RuntimeWire](https://runtimewire.com/article/typesafe-jev-1-14-danger-zone-experiments) (Oct 16, 2026) — Jev 1.14.0 preview's image, bounding-box, and long-context features sit behind opt-in "danger zone" API headers because TypeSafe deems them too jagged for production
 
 ## Gotchas & Operational Risks
 
@@ -237,4 +245,4 @@ This list is released under [CC0 1.0](http://creativecommons.org/publicdomain/ze
 
 ---
 
-*Last updated: 2026-09-24*
+*Last updated: 2026-10-19*
