@@ -138,6 +138,10 @@ const result = await evaluate({
 - [pg-jev](https://github.com/realZachi/pg-jev) — PostgreSQL extension: ask tables questions in plain language via Jev
 - [sommelier](https://github.com/wide3751/sommelier) (Oct 13, 2026) — Claude Code plugin that picks the right model and effort for each task using TypeSafe Jev judgments
 - [langgraph-jev-router](https://github.com/JTankariya/langgraph-jev-router) — native LangGraph conditional edge that replaces generative LLMs with Jev for routing; `pip install langgraph-jev-router`; featured in an Oct 16 industrial-safety-dispatch benchmark series
+- [n8n-nodes-typesafe](https://github.com/taifoon-io/n8n-nodes-typesafe) (updated Oct 19, 2026) — n8n community node: ask yes/no, pick-one and rate-it questions about any item and route on calibrated answers (Pass / Fail / Review)
+- [jev-mode](https://github.com/tiffygk/jev-mode) (updated Oct 19, 2026) — Claude Code/Codex skills, evals, harnesses and learning resources for building with Jev, pulling from the canonical cookbooks and docs
+- [tf-jev](https://github.com/alexsosn/tf-jev) (Oct 10, 2026) — Text Fabric extension: query a corpus in plain language via TypeSafe Jev
+- [jev-browser](https://github.com/jaworski88/jev-browser) (Oct 19, 2026) — browser-automation library + CLI where an LLM plans and Jev decides
 
 ## Research Papers
 
@@ -162,6 +166,7 @@ Official claims (specific workflows): up to **193.6× faster** and **444.6× che
 - **JevBench 72.07%** (TypeSafe-reported): reference score on the company's workflow evaluations (67.8% agreement, 0.4s/case)
 - **30-image test, 1.14 vs 1.13** (press-report.net, Oct 16, 2026): same 30 images, same questions — 1.14 is stricter (fit own headline ≥0.5: 15/30 vs 23/30 on 1.13; wrong-headline fits fell 4/30 to 1/30). Box type boxed 6/6 clear targets, but also drew a box (confidence 0.03) for an absent bicycle. Author advises re-tuning thresholds before `jev-latest` flips to 1.14. [Writeup](https://press-report.net/ai-news/what-jev-made-of-30-images-from-my-collection/)
 - **Workflow dashboard recheck** (kingy.ai, Oct 12, 2026): rechecked TypeSafe's public case metadata — 711 vendor-declared cases (240 security / 117 agent traces / 150 invoices / 204 customer service); aggregate 67.8% at $0.0004 / 0.4s vs best comparator Sol 74.1% — Jev wins cost/time, not reported accuracy. [Review](https://kingy.ai/blog/typesafe-jev-review-the-ai-model-that-doesnt-generate-text/)
+- **TypeSafe's 1.14 intelligence-scale charts, replotted** (ailately.com, Oct 16, 2026): re-charts TypeSafe's own intelligence scores — Jev 1.14.0 at 60.0 vs 1.13.0 at 58.9, best open-weight rival kev-27b at 46.7 — plus calibration error (1.14: 1.6 vs 1.8 for 1.13); notes the vendor test "likely favors Jev". [Charts](https://ailately.com/articles/typesafe-jev-1-14-danger-zone)
 
 ## Use Cases
 
@@ -179,6 +184,7 @@ The pattern: wherever a system needs a *fast, cheap judgment* inside a loop, rat
 - **Game agents** — [typesafe-mario](https://github.com/fhshaik/typesafe-mario): Jev agent playing Super Mario Bros. from structured emulator state
 - **Document review** — [Unsiloed blog](https://www.unsiloed.ai/blog/document-review-unsiloed-typesafe-jev) (Oct 13, 2026): writeup on using Jev for document review, posted to HN (48 points, 7 comments)
 - **Realtime object tracking** — [BenCaunt/jev-box-tracking](https://github.com/BenCaunt/jev-box-tracking) (Oct 16, 2026): first visible use of the Jev 1.14 `box` question type — realtime object tracking combining Jev box questions, optical flow, and a Kalman filter
+- **Bulk review tagging in a data warehouse** — [Sigma / MotherDuck writeup](https://www.sigmacomputing.com/blog/what-is-jev-sigma-motherduck) (Oct 17, 2026): Jev tags 6,578 customer reviews with the key product features each references in 4.6 seconds for 5.3 cents, run from Sigma AI columns on MotherDuck
 
 ## Open-Source Reimplementations & Local Alternatives
 
@@ -196,6 +202,8 @@ The pattern: wherever a system needs a *fast, cheap judgment* inside a loop, rat
 - [Eigent AI: 什么是 Jev](https://www.eigent.ai/zh-CN/blog/typesafe-ai-jev-system-one-models) — detailed Chinese explainer
 - [DEV Community guide](https://dev.to) — getting-started guides circulating since launch week
 - [cobusgreyling/Jev](https://github.com/cobusgreyling/Jev) — unofficial Jev showcase (System One decisions, not chat)
+- [getmaxim.ai: What Is Jev? Inside TypeSafe AI's System One Model](https://www.getmaxim.ai/articles/what-is-jev-system-one-model/) (Oct 14, 2026) — in-depth explainer: how Jev works internally, where the breakthrough sits, what it's bad at, and which workloads move first
+- [OpenRouter: What Is Jev? Decision Model Explained for Developers](https://openrouter.ai/blog/insights/what-is-jev/) (Oct 17, 2026) — guides hub: gating tool calls with Noul, building a moderation pipeline in TypeScript, Jev vs LLM-as-a-judge
 
 ## Media Coverage
 
@@ -245,4 +253,4 @@ This list is released under [CC0 1.0](http://creativecommons.org/publicdomain/ze
 
 ---
 
-*Last updated: 2026-10-19*
+*Last updated: 2026-10-20*
